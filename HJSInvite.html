@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Custom Form Redirect</title>
+    <script>
+      function detectFormSubmission() {
+        const iframe = document.getElementById("formFrame");
+        const observer = new MutationObserver(() => {
+          const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+          if (innerDoc && innerDoc.body.innerText.includes("Thank you for responding")) {
+            window.location.href = "https://www.youtube.com/@HinduJanaShakti"; // Your redirect URL
+          }
+        });
+
+        observer.observe(iframe, { childList: true, subtree: true });
+      }
+
+      window.onload = detectFormSubmission;
+    </script>
+  </head>
+  <body>
+    <iframe id="formFrame"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdrDMR8iTy0crQ-gwlcwL2DExzH9kh_xJDxpMl2crmleaRmRg/viewform?embedded=true"
+      width="640" height="800"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0">
+      Loading…
+    </iframe>
+  </body>
+</html>
