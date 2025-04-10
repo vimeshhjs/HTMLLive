@@ -7,7 +7,7 @@
         const iframe = document.getElementById("formFrame");
         const observer = new MutationObserver(() => {
           const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-          if (innerDoc && innerDoc.body.innerText.includes("Thank you for responding")) {
+          if (innerDoc && innerDoc.body.innerText.includes("Thanks")) {
             window.location.href = "https://www.youtube.com/@HinduJanaShakti"; // Your redirect URL
           }
         });
